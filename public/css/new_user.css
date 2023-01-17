@@ -1,0 +1,11 @@
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}  
+
+form{
+    border: solid 1px rgb(219, 219, 219);
+    border-radius: 10px;
+    padding: 1%;
+}

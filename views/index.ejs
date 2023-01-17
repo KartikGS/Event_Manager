@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>WIM Project</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/index.css">
+  </head>
+  <body>
+    <header class="py-3 mb-4 border-bottom bg-primary">
+    <div class="container d-flex flex-wrap justify-content-center">
+      <div href="/" class="d-flex align-items-center mb-3 mb-lg-0 me-lg-auto text-light text-decoration-none">
+        <span class="fs-1">VJTI Event Manager</span>
+      </div>
+    </div>
+    </header>
+    <div class="container mr-auto">
+      <div class="row">
+      <div class="col-md-4 mt-1">
+        <div class="list-group">
+          <a href="#" class="list-group-item list-group-item-action  active" aria-current="true">Home</a>
+          <a href="new_user" class="list-group-item list-group-item-action">New User</a>
+          <a href="login" class="list-group-item list-group-item-action">Login</a>
+          <a href="add_event" class="list-group-item list-group-item-action">Add events</a>
+          <a href="update" class="list-group-item list-group-item-action">Update User Info</a>
+          <a href="#" class="list-group-item list-group-item-action">FAQ</a>
+        </div>
+      </div>
+      <div class="col-md ml-5">
+        <div class="col-md-12 scroll-left">
+            <h3 style="background-color: rgb(66, 186, 255);">UPCOMING EVENTS. REGISTER NOW!!!</h3>  
+        </div>
+        <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+          <div class="carousel-indicators">
+            <%if(e.top3){%>
+            <%for(let i=0;i<e.top3.length;i++){%>
+            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="<%=i%>" <%if(i==0){%> class="active" aria-current="true"<%}%> aria-label="Slide <%=i+1%>"></button>
+            <%}%>
+            <%}%>
+          </div>
+            <div class="carousel-inner">
+              <%if(e.top3.length!=0){%>
+              <%for(let i=0;i<e.top3.length;i++){%>
+              <div class="carousel-item <%if(i==0){%>active"<%}%> data-bs-interval="10000">
+                <%const base64String = btoa(new Uint8Array(e.top3[i].img.data).reduce(function(data,byte){return data+ String.fromCharCode(byte)},''));%>
+                <img src="data:image/png;base64,<%=base64String%>" class="d-block w-100 img-fluid" alt="..." id='output'>
+                <div class="carousel-caption d-none d-md-block">
+                  <h3><%=e.top3[i].title%></h3>
+                  <h4><%=e.top3[i].venue%></h4>
+                  <h4><%=e.top3[i].club%></h4>
+                  <h4><%=e.top3[i].desc%></h4>
+                </div>
+              </div>
+              <%}%>
+              <%}%>
+              <%if(e.top3.length==0){%>
+                <div class="carousel-item active" data-bs-interval="10000">
+                  <img src="img/placeholder.jpeg" class="d-block w-100 img-fluid" alt="..." id='output'>
+                  <div class="carousel-caption d-none d-md-block">
+                  </div>
+                </div>
+              <%}%>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+      </div>
+<div class="col-12 mt-4">
+    <div class="col-12" style="text-align: center;">
+      <h2 class="font-weight-light">By GSDC</h2>  
+    </div>
+    <div id="carouselExampleDark1" class="carousel carousel-dark slide" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <%if(e.top3GSDC){%>
+        <%for(let i=0;i<e.top3GSDC.length;i++){%>
+        <button type="button" data-bs-target="#carouselExampleDark1" data-bs-slide-to="<%=i%>" <%if(i==0){%> class="active" aria-current="true"<%}%> aria-label="Slide <%=i+1%>"></button>
+        <%}%>
+        <%}%>
+      </div>
+        <div class="carousel-inner">
+          <%if(e.top3GSDC.length!=0){%>
+          <%for(let i=0;i<e.top3GSDC.length;i++){%>
+          <div class="carousel-item <%if(i==0){%>active"<%}%> data-bs-interval="10000">
+            <%const base64String = btoa(new Uint8Array(e.top3GSDC[i].img.data).reduce(function(data,byte){return data+ String.fromCharCode(byte)},''));%>
+            <img src="data:image/png;base64,<%=base64String%>" class="d-block w-100 img-fluid" alt="..." id='output'>
+            <div class="carousel-caption d-none d-md-block">
+              <h3><%=e.top3GSDC[i].title%></h3>
+              <h4><%=e.top3GSDC[i].venue%></h4>
+              <h4><%=e.top3GSDC[i].club%></h4>
+              <h4><%=e.top3GSDC[i].desc%></h4>
+            </div>
+          </div>
+          <%}%>
+          <%}%>
+          <%if(e.top3GSDC.length==0){%>
+            <div class="carousel-item active" data-bs-interval="10000">
+              <img src="img/placeholder.jpeg" class="d-block w-100 img-fluid" alt="..." id='output'>
+              <div class="carousel-caption d-none d-md-block">
+              </div>
+            </div>
+          <%}%>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark1" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark1" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+</div>
+</div>
+<div class="col-12 mt-4">
+  <div class="col-12" style="text-align: center;">
+    <h2 class="font-weight-light">By COC</h2>  
+  </div>
+  <div id="carouselExampleDark2" class="carousel carousel-dark slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <%if(e.top3COC){%>
+      <%for(let i=0;i<e.top3COC.length;i++){%>
+      <button type="button" data-bs-target="#carouselExampleDark2" data-bs-slide-to="<%=i%>" <%if(i==0){%> class="active" aria-current="true"<%}%> aria-label="Slide <%=i+1%>"></button>
+      <%}%>
+      <%}%>
+    </div>
+      <div class="carousel-inner">
+        <%if(e.top3COC.length!=0){%>
+        <%for(let i=0;i<e.top3COC.length;i++){%>
+        <div class="carousel-item <%if(i==0){%>active"<%}%> data-bs-interval="10000">
+          <%const base64String = btoa(new Uint8Array(e.top3COC[i].img.data).reduce(function(data,byte){return data+ String.fromCharCode(byte)},''));%>
+          <img src="data:image/png;base64,<%=base64String%>" class="d-block w-100 img-fluid" alt="..." id='output'>
+          <div class="carousel-caption d-none d-md-block">
+            <h3><%=e.top3COC[i].title%></h3>
+            <h4><%=e.top3COC[i].venue%></h4>
+            <h4><%=e.top3COC[i].club%></h4>
+            <h4><%=e.top3COC[i].desc%></h4>
+          </div>
+        </div>
+        <%}%>
+        <%}%>
+        <%if(e.top3COC.length==0){%>
+          <div class="carousel-item active" data-bs-interval="10000">
+            <img src="img/placeholder.jpeg" class="d-block w-100 img-fluid" alt="..." id='output'>
+            <div class="carousel-caption d-none d-md-block">
+            </div>
+          </div>
+        <%}%>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark2" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark2" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+</div>
+</div>
+<div class="col-12 mt-4">
+  <div class="col-12" style="text-align: center;">
+    <h2 class="font-weight-light">By E-CELL</h2>  
+  </div>
+  <div id="carouselExampleDark3" class="carousel carousel-dark slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <%if(e.top3ECELL){%>
+      <%for(let i=0;i<e.top3ECELL.length;i++){%>
+      <button type="button" data-bs-target="#carouselExampleDark3" data-bs-slide-to="<%=i%>" <%if(i==0){%> class="active" aria-current="true"<%}%> aria-label="Slide <%=i+1%>"></button>
+      <%}%>
+      <%}%>
+    </div>
+      <div class="carousel-inner">
+        <%if(e.top3ECELL.length!=0){%>
+        <%for(let i=0;i<e.top3ECELL.length;i++){%>
+        <div class="carousel-item <%if(i==0){%>active"<%}%> data-bs-interval="10000">
+          <%const base64String = btoa(new Uint8Array(e.top3ECELL[i].img.data).reduce(function(data,byte){return data+ String.fromCharCode(byte)},''));%>
+          <img src="data:image/png;base64,<%=base64String%>" class="d-block w-100 img-fluid" alt="..." id='output'>
+          <div class="carousel-caption d-none d-md-block">
+            <h3><%=e.top3ECELL[i].title%></h3>
+            <h4><%=e.top3ECELL[i].venue%></h4>
+            <h4><%=e.top3ECELL[i].club%></h4>
+            <h4><%=e.top3ECELL[i].desc%></h4>
+          </div>
+        </div>
+        <%}%>
+        <%}%>
+        <%if(e.top3ECELL.length==0){%>
+          <div class="carousel-item active" data-bs-interval="10000">
+            <img src="img/placeholder.jpeg" class="d-block w-100 img-fluid" alt="..." id='output'>
+            <div class="carousel-caption d-none d-md-block">
+            </div>
+          </div>
+        <%}%>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark3" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark3" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+</div>
+</div>
+<div class="col-12"></div>
+<div class="col-12"></div>
+    </div>
+        <div class="row mt-5">
+          <div class="offset-3 col-6" id="display"></div>
+         </div>
+      </div>    
+  <footer class="py-3 bg-primary">
+    <ul class="nav justify-content-center border-bottom border-info pb-3 mb-3">
+      <li class="nav-item"><a href="#" class="nav-link px-2 text-light">Kartik Shetty</a></li>
+      <li class="nav-item"><a href="#" class="nav-link px-2 text-light">Hrishikesh Bade</a></li>
+    </ul>
+    <p class="text-center text-light">© 2022 VJTI, Uni</p>
+  </footer>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js" integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous"></script>
+  <script src="js/home.js"></script>
+  </body>
+</html>

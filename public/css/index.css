@@ -1,0 +1,55 @@
+.scroll-left {
+ height: 50px;	
+ overflow: hidden;
+ position: relative;
+}
+.scroll-left h3 {
+ position: absolute;
+ width: 100%;
+ height: 100%;
+ margin: 0;
+ line-height: 50px;
+ text-align: center;
+ /* Starting position */
+ transform:translateX(100%);
+ /* Apply animation to this element */
+ animation: scroll-left 15s linear infinite;
+}
+/* Move it (define the animation) */
+@keyframes scroll-left {
+ 0%   {
+ transform: translateX(100%); 		
+ }
+ 100% {
+ transform: translateX(-100%); 
+ }
+}
+
+
+
+.blink{
+    animation:1.5s linear infinite  blink;
+}
+
+@keyframes blink {
+    0%{
+        visibility: hidden;
+    }
+    50%{
+        visibility: hidden;
+    }
+    100%{
+        visibility: visible;
+    }
+}
+
+.horizontal-scrollable{
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+.card-body {
+    min-height: 300px;
+    min-width: 300px;
+    margin-right: 5px;
+}

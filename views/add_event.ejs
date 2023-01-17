@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>WIM Project</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+  </head>
+  <body>
+    <header class="py-3 mb-4 border-bottom bg-primary">
+    <div class="container d-flex flex-wrap justify-content-center">
+      <div href="/" class="d-flex align-items-center mb-3 mb-lg-0 me-lg-auto text-light text-decoration-none">
+        <span class="fs-1">VJTI Event Manager</span>
+      </div>
+    </div>
+  </header>
+    <div class="container mr-auto">
+      <div class="row">
+      <div class="col-md-4">
+        <div class="list-group">
+  <a href="/" class="list-group-item list-group-item-action">Home</a>
+  <a href="new_user" class="list-group-item list-group-item-action">New User</a>
+  <a href="login" class="list-group-item list-group-item-action">Login</a>
+  <a href="#" class="list-group-item list-group-item-action active" aria-current="true"> Add event</a>
+  <a href="update" class="list-group-item list-group-item-action">Update User Info</a>
+   <a href="#" class="list-group-item list-group-item-action">FAQ</a>
+</div>
+      </div>
+      <div class="col-md-8">
+        <form id='form' class="row g-3" name="submit-to-google-sheet" method="POST" enctype="multipart/form-data">
+          
+          <div class="col-md-6">
+    <label for="inputName4" class="form-label">Title</label>
+    <input type="text" class="form-control" id="inputName4"  placeholder=""  name="title" required>
+  </div>
+  
+  
+  <div class="col-md-6">
+    <label for="inputPassword4" class="form-label">Venue</label>
+    <input type="text" class="form-control" id="inputPassword4" name="venue" required>
+  </div>
+  
+  <div class="col-md-12">
+    <label for="inputNumber4" class="form-label">Start Date and Time</label>
+    <input type="datetime-local" class="form-control" id="dateOfBirth" name="start" required>
+  </div>        
+  
+  
+  <div class="col-md-12">
+    <label for="inputNumber4" class="form-label">End Date and Time</label>
+    <input type="datetime-local" class="form-control" id="inputNumber4" name="end" required>
+  </div>
+  
+  <div class="col-md-6">
+    <label for="inputImage" class="form-label">BillBoard</label>
+    <input type="file" class="form-control" id="inputImage" name="file" accept="image/png" onchange="loadFile(event)">
+  </div>
+  <div class="col-md-6">
+    <label for="inputState" class="form-label">Club</label>
+    <select id="inputState" class="form-select" name="club" required>
+      <option>GSDC</option>
+      <option>COC</option>
+      <option>E-CELL</option>
+      <option>Enthusia</option>
+      <option>Ranghawardhan</option>
+    </select>
+  </div>
+  <div class="col-12">
+    <label for="about" class="form-label">Description of the event</label>
+    <textarea class="form-control" id="about" name="desc" rows="5" required></textarea>
+  </div>
+  
+  <div class="col-6">
+    <button type="submit" id='add1' class="btn btn-primary">Add to Database</button>
+  </div>
+</form>
+<div class="col-6 m-1">
+  <button id='add' onclick="handleAuthClick()" class="btn btn-primary">Add to Calender</button>
+</div>
+<pre id="content" style="white-space: pre-wrap;"></pre>
+<iframe src="https://calendar.google.com/calendar/embed?src=kgshetty_b20%40it.vjti.ac.in&ctz=Asia%2FKolkata" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+      </div>
+    </div>
+        <div class="row mt-5">
+          <div class="offset-3 col-6" id="display"></div>
+         </div>
+      </div>
+  <footer class="py-3 bg-primary">
+    <ul class="nav justify-content-center border-bottom border-info pb-3 mb-3">
+      <li class="nav-item"><a href="#" class="nav-link px-2 text-light">Kartik Shetty</a></li>
+      <li class="nav-item"><a href="#" class="nav-link px-2 text-light">Hrishikesh Bade</a></li>
+    </ul>
+    <p class="text-center text-light">© 2022 VJTI, Uni</p>
+  </footer>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js" integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous"></script>
+    <script src="js/add_event.js"></script>
+    <script async defer src="https://apis.google.com/js/api.js" onload="gapiLoaded()"></script>
+    <script async defer src="https://accounts.google.com/gsi/client" onload="gisLoaded()"></script>
+  </body>
+</html>

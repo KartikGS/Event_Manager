@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>WIM project</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/update.css">
+  </head>
+  <body>
+    <header class="py-3 mb-4 border-bottom bg-primary">
+    <div class="container d-flex flex-wrap justify-content-center">
+      <div href="/" class="d-flex align-items-center mb-3 mb-lg-0 me-lg-auto text-light text-decoration-none">
+        <span class="fs-1">VJTI Event Manager</span>
+      </div>
+    </div>
+  </header>
+    <div class="container mr-auto">
+      <div class="row">
+      <div class="col-md-4">
+        <div class="list-group">
+  <a href="./" class="list-group-item list-group-item-action">Home</a>
+  <a href="new_user" class="list-group-item list-group-item-action">New User</a>
+  <a href="login" class="list-group-item list-group-item-action">Login</a>
+  <a href="add_event" class="list-group-item list-group-item-action">Add events</a>
+  <a href="#" class="list-group-item list-group-item-action active" aria-current="true">Update User Info</a>
+   <a href="#" class="list-group-item list-group-item-action">FAQ</a>
+</div>
+      </div>
+      <div class="col-md-8" id="verification">
+          <form class="d-flex flex-column">
+  <div class="col-12 mt-3">
+    <label class="visually-hidden" for="inlineFormInputGroupUsername">Username</label>
+    <div class="input-group">
+      <div class="input-group-text">Name</div>
+      <input type="text" class="form-control" id="name" placeholder="First Middle Last">
+    </div>
+  </div>
+            
+  <div class="col-12 mt-3">
+    <label class="visually-hidden" for="pass">Password</label>
+     <input type="password" class="form-control" placeholder="Password" aria-label="Password" id="pass">
+  </div>
+
+  <div class="col-12 mt-3">
+    <label class="visually-hidden" for="inlineFormInputGroupUsername">VJTI Email ID</label>
+    <div class="input-group">
+      <div class="input-group-text">Vjti Email ID</div>
+      <input type="email" class="form-control" id="inputEmail4" name="Email" required pattern="[a-z]*_b[0-9][0-9]@[a-z][a-z].vjti.ac.in">
+    </div>
+  </div>
+
+  <div class="col-12 mt-3">
+    <button type="submit" class="btn btn-primary" onclick="verify(event)">Submit</button>
+  </div>
+</form>
+        </div>
+    </div>
+        <div class="row mt-3">
+          <div class="col-12" id="display">
+            
+          </div>
+         </div>
+      </div>
+  <footer class="py-3 bg-primary">
+    <ul class="nav justify-content-center border-bottom border-info pb-3 mb-3">
+      <li class="nav-item"><a href="#" class="nav-link px-2 text-light">Kartik Shetty</a></li>
+      <li class="nav-item"><a href="#" class="nav-link px-2 text-light">Hrishikesh Bade</a></li>
+    </ul>
+    <p class="text-center text-light">© 2022 VJTI, Uni</p>
+  </footer>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js" integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous"></script>
+      <script src="js/update.js"></script>
+  </body>
+</html>
