@@ -85,7 +85,7 @@ function maybeEnableButtons() {
   }
 
   function sendtob(){
-    const url = "http://localhost:3000/add_event";
+    const url = "http://localhost:5000/add_event";
 const options = {
   method: "POST",
   headers: {
@@ -105,7 +105,7 @@ fetch(url, options)
   }
 
 const form = document.forms['submit-to-google-sheet']
-const url = "http://localhost:3000/add_event";
+const url = "http://localhost:5000/add_event";
 
 form.addEventListener('submit', e => {
   e.preventDefault()

@@ -1,6 +1,6 @@
 // const scriptURL = 'https://script.google.com/macros/s/AKfycbz3ZjHoBjwdYR671fKzQskS2h1QS5Ydr3yZ0KziTHybPlF24KTztEL0-15m-pS4P36V-g/exec'
 const form = document.forms['submit-to-google-sheet']
-const url = "http://localhost:3000/new_user";
+const url = "http://localhost:5000/new_user";
 const options = {
   method: "POST",
   headers: {
