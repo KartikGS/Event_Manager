@@ -1,13 +1,15 @@
+import { NavLink } from 'react-router-dom';
+
 function Navbar(){
     return(
-        <div class="list-group">
-          <a href="/home" class="list-group-item list-group-item-action">Home</a>
-          <a href="new_user" class="list-group-item list-group-item-action">New User</a>
-          <a href="login" class="list-group-item list-group-item-action">Login</a>
-          <a href="add_events" class="list-group-item list-group-item-action active" aria-current="true"> Add event</a>
-          <a href="update_user_info" class="list-group-item list-group-item-action">Update User Info</a>
+        <div className="list-group">
+            <NavLink to="/home" className="list-group-item list-group-item-action" activeClassName="active" aria-current="true">Home</NavLink>
+            <NavLink to="/new_user" className="list-group-item list-group-item-action" activeClassName="active" aria-current="true">New User</NavLink>
+            <NavLink to="/login" className="list-group-item list-group-item-action" activeClassName="active" aria-current="true">Login</NavLink>
+            <NavLink to="/add_events" className="list-group-item list-group-item-action" activeClassName="active" aria-current="true"> Add event</NavLink>
+            <NavLink to="/update_user_info" className="list-group-item list-group-item-action" activeClassName="active" aria-current="true">Update User Info</NavLink>
         </div>
     )
 }
 
-export default Navbar
+export default Navbar;
