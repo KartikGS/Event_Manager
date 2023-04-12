@@ -1,7 +1,7 @@
 import toast from 'react-hot-toast'
 
-export async function newUserValidate(values){
-    const errors = newUserVerify({}, values);
+export async function updateValidate(values){
+    const errors = updateVerify({}, values);
 
     //if(values.username){
     //    // check user exist or not
@@ -15,8 +15,8 @@ export async function newUserValidate(values){
     return errors;
 }
 
-function newUserVerify(error = {}, values){
-    if(!values.username.trim() || !values.password.trim() || !values.gender.trim() || !values.email.trim() || !values.dob.trim() || !values.branch.trim() || !values.sem.trim()){
+function updateVerify(error = {}, values){
+    if(!values.username.trim() || !values.password.trim() || !values.email.trim()){
         error.username = toast.error('Invalid Inputs...!');
     }
 

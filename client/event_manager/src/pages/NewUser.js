@@ -1,7 +1,7 @@
 import Navbar from "../components/Navbar";
 import { Toaster } from 'react-hot-toast';
 import { useFormik } from 'formik';
-import { usernameValidate } from '../helper/validateNewUser'
+import { newUserValidate } from '../helper/validateNewUser'
 import { useState } from "react";
 
 function NewUser(){
@@ -26,10 +26,10 @@ function NewUser(){
       gender:'',
       dob:'',
       email:'',
-      branch:'',
-      sem:''
+      branch:'CE',
+      sem:'5'
     },
-    validate : usernameValidate,
+    validate : newUserValidate,
     validateOnBlur: false,
     validateOnChange: false,
     onSubmit : async values => {
@@ -62,11 +62,11 @@ function NewUser(){
                               <label htmlFor="gender" className="form-label">Gender</label>
                               <div className="col-md-12" id="gender">
                                   <div className="col-md-5 form-check form-check-inline">
-                                      <input className="form-check-input" type="radio" name="gender" id="inlineRadio1" value="Male" checked={formik.values.gender === 'Male'} onChange={formik.handleChange} onBlur={formik.handleBlur}/>
+                                      <input className="form-check-input" type="radio" name="gender" id="inlineRadio1" value="Male" required checked={formik.values.gender === 'Male'} onChange={formik.handleChange} onBlur={formik.handleBlur}/>
                                     <label className="form-check-label" htmlFor="inlineRadio1">Male</label>
                                   </div>
                                   <div className="col-md-5 form-check form-check-inline">
-                                    <input className="form-check-input" type="radio" name="gender" id="inlineRadio2" value="Female" checked={formik.values.gender === 'Female'} onChange={formik.handleChange} onBlur={formik.handleBlur}/>
+                                    <input className="form-check-input" type="radio" name="gender" id="inlineRadio2" value="Female" required checked={formik.values.gender === 'Female'} onChange={formik.handleChange} onBlur={formik.handleBlur}/>
                                     <label className="form-check-label" htmlFor="inlineRadio2">Female</label>
                                   </div>  
                               </div>
